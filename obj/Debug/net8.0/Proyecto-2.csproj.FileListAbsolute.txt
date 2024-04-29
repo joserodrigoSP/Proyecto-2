@@ -12,3 +12,4 @@ C:\Users\jrodr\OneDrive\Escritorio\Proyecto-2\obj\Debug\net8.0\refint\Proyecto-2
 C:\Users\jrodr\OneDrive\Escritorio\Proyecto-2\obj\Debug\net8.0\Proyecto-2.pdb
 C:\Users\jrodr\OneDrive\Escritorio\Proyecto-2\obj\Debug\net8.0\Proyecto-2.genruntimeconfig.cache
 C:\Users\jrodr\OneDrive\Escritorio\Proyecto-2\obj\Debug\net8.0\ref\Proyecto-2.dll
+C:\Users\jrodr\OneDrive\Escritorio\Proyecto-2\obj\Debug\net8.0\Proyecto-2.sourcelink.json
