@@ -3,10 +3,17 @@
     public static void Main(string[] args)
     {
 
-     bool[,] ubicacionpieza = new bool[8,8]; //matriz para almacenar la posicion de las piezas del tablero.
-        int tipoPieza =0; int opcion=0; int numpieza =0;int k =0; int l=1;
+     string[,] ubicacionpieza = new string[8,8]; //matriz para almacenar la posicion de las piezas del tablero.
+        int tipoPieza =0; int opcion=0; int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
         
-        
+        //Declarar los espacios del arreglo como libres
+        for(int i=0; i<ubicacionpieza.GetLength(0); i++){
+            for(int j=0; j<ubicacionpieza.GetLength(1); j++){
+                ubicacionpieza[0+i,j]= "libre";
+        }
+        }
+
+
         Console.WriteLine("Cuantas piezas desea agregar?");
         int.TryParse(Console.ReadLine(), out numpieza);
         string[] pieza = new string[numpieza]; 
@@ -32,12 +39,17 @@
         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 if(ubicacion.Contains(Convert.ToChar(97+i)) && ubicacion.Contains(Convert.ToChar(49+j))){
-            ubicacionpieza[0+i,j]= true;
+            ubicacionpieza[0+i,j]= pieza[k];
             } 
         }
         }
         Console.WriteLine("El numero de pieza es: "+ numpieza+ ". Y el numero l es: "+ l);
         k++;l++;}while (l <= numpieza);
+
+
+        Console.WriteLine("En que espacio desea la dama? ");
+        ubicaciondama = Console.ReadLine();
+      
 
         
 
@@ -48,9 +60,7 @@
         }
 
 
-        for(int i=0; i<pieza.Length; i++){
-           Console.WriteLine(pieza[i]);
-        }
+   
       
 
 

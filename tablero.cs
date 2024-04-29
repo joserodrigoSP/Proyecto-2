@@ -11,4 +11,8 @@ public class tablero
 
     }
 
+    public void insertarpiezas(){
+
+    }
+
 }
