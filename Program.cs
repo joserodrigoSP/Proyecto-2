@@ -59,19 +59,10 @@
         }
 
         Tablero objtablero = new Tablero(ubicacionpieza);
+        objtablero.graficarTablero();
+       
 
-        for(int i=0; i<ubicacionpieza.GetLength(0); i++){
-            for(int j=0; j<ubicacionpieza.GetLength(1); j++){
-                Console.WriteLine("-"+ objtablero.ltablero[j,i]);
-            } 
-        } 
-
-        for(int i = 0; i < ubicacionpieza.GetLength(0); i++){
-         for(int z=0;  z< ubicacionpieza.GetLength(1); z++) {
-            Console.Write(" " + ubicacionpieza[z,i]);
-        }
-        Console.WriteLine(" ");
-        }
+       
 
 
    
