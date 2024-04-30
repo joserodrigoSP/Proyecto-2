@@ -1,18 +1,21 @@
 ﻿namespace Proyecto_2;
 
-public class tablero
+public class Tablero
 {
 
-    public bool[,] ltablero = new bool[8,8];
-    public string tipoPieza;
-    public bool[,] ubicacionpieza;  
+    public string[,] ltablero = new string[8,8];
 
-    public tablero(string tipopieza, bool[,] ubicacion){
-
+    public Tablero(string[,] ubicaciones){
+        this.ltablero = ubicaciones;
     }
 
-    public void insertarpiezas(){
+    public void evaluarPosiciones(){
+        for(int i = 0; i < ltablero.GetLength(0); i++){
+            for(int j = 0; j < ltablero.GetLength(1); j++){
+                
+            }
+        }
 
     }
-
+    
 }

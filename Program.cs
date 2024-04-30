@@ -1,15 +1,16 @@
-﻿ class Program
+﻿namespace Proyecto_2; 
+ class Program
 {
     public static void Main(string[] args)
     {
 
      string[,] ubicacionpieza = new string[8,8]; //matriz para almacenar la posicion de las piezas del tablero.
-        int tipoPieza =0; int opcion=0; int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
+        int tipoPieza =0;  int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
         
         //Declarar los espacios del arreglo como libres
         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
-                ubicacionpieza[0+i,j]= "libre";
+                ubicacionpieza[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
         }
         }
 
@@ -25,11 +26,11 @@
             case 1: pieza[k] = "alfil blanco";break;
             case 2: pieza[k] = "peon blanco";break;
             case 3: pieza[k] = "caballo blanco";break;
-            case 4: pieza[k] = "torre blanca";break;
+            case 4: pieza[k] = "torre blanco";break;
             case 5: pieza[k] = "alfil negro";break;
             case 6: pieza[k] = "peon negro";break;
             case 7: pieza[k] = "caballo negro";break;
-            case 8: pieza[k] = "torre negra";break;} // ASIGNAR LA PIEZA
+            case 8: pieza[k] = "torre negro";break;} // ASIGNAR LA PIEZA
 
     //ubicacion de la pieza
         Console.WriteLine("En qué ubicación desea colocar la pieza?");
@@ -49,14 +50,27 @@
 
         Console.WriteLine("En que espacio desea la dama? ");
         ubicaciondama = Console.ReadLine();
-      
+         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
+            for(int j=0; j<ubicacionpieza.GetLength(1); j++){
+                if(ubicaciondama.Contains(Convert.ToChar(97+i)) && ubicaciondama.Contains(Convert.ToChar(49+j))){
+            ubicacionpieza[0+i,j]= "dama";
+            } 
+        }
+        }
 
-        
+        Tablero objtablero = new Tablero(ubicacionpieza);
 
         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
-                Console.WriteLine("-"+ ubicacionpieza[j,i]);
+                Console.WriteLine("-"+ objtablero.ltablero[j,i]);
             } 
+        } 
+
+        for(int i = 0; i < ubicacionpieza.GetLength(0); i++){
+         for(int z=0;  z< ubicacionpieza.GetLength(1); z++) {
+            Console.Write(" " + ubicacionpieza[z,i]);
+        }
+        Console.WriteLine(" ");
         }
 
 
