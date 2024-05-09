@@ -54,9 +54,9 @@
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 if(ubicaciondama.Contains(Convert.ToChar(97+i)) && ubicaciondama.Contains(Convert.ToChar(49+j))){
                if(dm == 1){ 
-            ubicacionpieza[0+i,j]= "dama blanco";
+            ubicacionpieza[0+i,j]= "dama blanca";
             }else{
-              ubicacionpieza[0+i,j]= "dama negro";
+              ubicacionpieza[0+i,j]= "dama negra";
 
             }
             } 

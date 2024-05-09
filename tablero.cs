@@ -17,14 +17,20 @@ public class Tablero
             for(int j = 0; j < ltablero.GetLength(1); j++){// Recorre la matriz
             pos1=i;
             pos2=j;
-            if(ltablero[i, j].Contains("dama blanco")){ //CASO DAMA BLANCA
-                for(int k=0; k<(ltablero.GetLength(0)-i);k++){
-                     
+            int k=0; 
+            if(ltablero[i, j].Contains("dama blanca")){ //CASO DAMA BLANCA
+           
+             while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<(ltablero.GetLength(0)-i)){
+                
+                
                         //if(!ltablero[pos1,pos2].Contains("blanco")){
                         Console.WriteLine("Las posiciones son: " +ltablero[pos1,pos2]);
                        // }
                        Console.WriteLine(ltablero.GetLength(0)-i);
+                       Console.WriteLine(k);
                         pos2++;
+                        k++;
+
                 }
 
 // FIN DE DAMA BLANCA
