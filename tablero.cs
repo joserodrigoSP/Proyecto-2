@@ -18,22 +18,31 @@ public class Tablero
             pos1=i;
             pos2=j;
             int k=0; 
-            if(ltablero[i, j].Contains("dama blanca")){ //CASO DAMA BLANCA
-           
-             while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<(ltablero.GetLength(0)-i)){
+            int valores =0;
+            if(ltablero[i, j].Contains("dama blanca")){ //---------------------------------------CASO DAMA BLANCA
+            valores =ltablero.GetLength(0)-j;
+            /// if para saber si el valor es positivo o es negativo
+             while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<valores){
                 
-                
-                        //if(!ltablero[pos1,pos2].Contains("blanco")){
+                if(j<valores){
                         Console.WriteLine("Las posiciones son: " +ltablero[pos1,pos2]);
-                       // }
-                       Console.WriteLine(ltablero.GetLength(0)-i);
-                       Console.WriteLine(k);
+                        Console.WriteLine(valores);
+                        Console.WriteLine("Valor de i: " +i+ "valor de j: "+j);
+                        Console.WriteLine("Valor de tablero: " +ltablero.GetLength(0));
                         pos2++;
                         k++;
+                        }else{
+                            Console.WriteLine("Las posiciones son: " +ltablero[pos1,pos2]);
+                        Console.WriteLine(valores);
+                        Console.WriteLine("Valor de i: " +i+ "valor de j: "+j);
+                        Console.WriteLine("Valor de tablero: " +ltablero.GetLength(0));
+                        pos2--;
+                        k++;
+                        }
 
                 }
 
-// FIN DE DAMA BLANCA
+// ---------------------------------FIN DE DAMA BLANCA-------------------- NO TOCAR ---------------------
 
 /*
             } else if(ltablero[i, j].Contains("dama negro")){ //CASO DAMA NEGRA
