@@ -3,7 +3,6 @@
 {
     public static void Main(string[] args)
     {
-
      string[,] ubicacionpieza = new string[8,8]; //matriz para almacenar la posicion de las piezas del tablero.
         int tipoPieza =0;  int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
         
@@ -47,20 +46,26 @@
         Console.WriteLine("El numero de pieza es: "+ numpieza+ ". Y el numero l es: "+ l);
         k++;l++;}while (l <= numpieza);
 
-
+        Console.WriteLine("Desea que la dama sea: \n 1) blanca \n 2)negra");
+        int dm = int.Parse(Console.ReadLine());
         Console.WriteLine("En que espacio desea la dama? ");
         ubicaciondama = Console.ReadLine();
          for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 if(ubicaciondama.Contains(Convert.ToChar(97+i)) && ubicaciondama.Contains(Convert.ToChar(49+j))){
-            ubicacionpieza[0+i,j]= "dama";
+               if(dm == 1){ 
+            ubicacionpieza[0+i,j]= "dama blanco";
+            }else{
+              ubicacionpieza[0+i,j]= "dama negro";
+
+            }
             } 
         }
         }
 
         Tablero objtablero = new Tablero(ubicacionpieza);
         objtablero.graficarTablero();
-       
+       objtablero.evaluarPosicionesRectas();
 
        
 
