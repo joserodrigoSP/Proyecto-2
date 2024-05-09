@@ -20,22 +20,20 @@ public class Tablero
             int k=0; 
             int valores =0;
             if(ltablero[i, j].Contains("dama blanca")){ //---------------------------------------CASO DAMA BLANCA
-            valores =ltablero.GetLength(0)-j;
+            valores =ltablero.GetLength(0)-i;
             /// if para saber si el valor es positivo o es negativo
              while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<valores){
                 
-                if(j<valores){
-                        Console.WriteLine("Las posiciones son: " +ltablero[pos1,pos2]);
-                        Console.WriteLine(valores);
-                        Console.WriteLine("Valor de i: " +i+ "valor de j: "+j);
-                        Console.WriteLine("Valor de tablero: " +ltablero.GetLength(0));
+                if(j+1<valores){
+                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
+                        Console.WriteLine("j: " +j);
+                        Console.WriteLine("valores: " +valores);
+                        
                         pos2++;
                         k++;
                         }else{
-                            Console.WriteLine("Las posiciones son: " +ltablero[pos1,pos2]);
-                        Console.WriteLine(valores);
-                        Console.WriteLine("Valor de i: " +i+ "valor de j: "+j);
-                        Console.WriteLine("Valor de tablero: " +ltablero.GetLength(0));
+                            Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
+                            Console.WriteLine("La resta es: " +valores);
                         pos2--;
                         k++;
                         }
