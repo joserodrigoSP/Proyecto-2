@@ -21,7 +21,7 @@ public class Tablero
             int valores =0;
             if(ltablero[i, j].Contains("dama blanca")){ //---------------------------------------CASO DAMA BLANCA
             valores =ltablero.GetLength(0)-i;
-            /// if para saber si el valor es positivo o es negativo
+            /// APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
              while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<valores){
                 
                 if(j+1<valores){
@@ -38,20 +38,17 @@ public class Tablero
                         k++;
                         }
 
-                }
+             } /// FIN DEL APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
 
+
+
+               /// APARTADO SI EN CASO LA PIEZA ES NEGRA EVALUAR POSICIONES RECTAS
+      
+          
 // ---------------------------------FIN DE DAMA BLANCA-------------------- NO TOCAR ---------------------
+}
 
-/*
-            } else if(ltablero[i, j].Contains("dama negro")){ //CASO DAMA NEGRA
-                  while(ltablero[pos1,pos2].Contains("blanco")){
-                for(int k=0; k<(ltablero.GetLength(0)-i);k++){
-                        Console.WriteLine("Las posiciones son: " +ltablero[pos1,pos2]);
-                        pos2++;
-                }
-                }*/}
-
-            } // FIN DE DAMA NEGRA
+            } 
 
 
             }
