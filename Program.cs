@@ -65,7 +65,7 @@
 
         Tablero objtablero = new Tablero(ubicacionpieza);
         objtablero.graficarTablero();
-       objtablero.evaluarPosicionesRectas();
+       objtablero.evaluarPosicionesRectasPzsBlancas();
 
        
 
