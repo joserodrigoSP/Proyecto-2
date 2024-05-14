@@ -55,6 +55,42 @@ public class Tablero
 
 }
 
+
+////////////////////////INICIO DAMA NEGRA /////////////////
+///
+     if(ltablero[i, j].Contains("dama negra")){ //---------------------------------------CASO DAMA negra
+            valores =ltablero.GetLength(0)-j;
+             valor = 8 -valores;
+ /// APARTADO SI --- ---  EN CASO LA PIEZA-------------------- --------- ------- ------- ----- ES negra EVALUAR POSICIONES RECTAS
+           
+  /// --------------------- FIN DEL - -- -- -- --- --- --APARTADO -- --  SI --  EN ----CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
+
+             while(!(ltablero[pos1,pos3].Contains("blanco")||ltablero[pos1,pos3].Contains("negro")) && m<valor){
+                
+                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos3]);
+                        pos3--;
+                        m++;
+             } 
+                if(ltablero[pos1,pos3].Contains("blanco")){
+                Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos3]);
+             }
+            /// APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
+             while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<valores){
+                
+                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
+                        pos2++;
+                        k++;
+            
+                        
+         
+             } 
+             if(ltablero[pos1,pos2].Contains("blanco")){
+                Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
+             }/// FIN DEL APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
+
+
+}
+
             } 
 
 
