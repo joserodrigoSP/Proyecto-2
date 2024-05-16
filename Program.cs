@@ -46,6 +46,7 @@
         Console.WriteLine("El numero de pieza es: "+ numpieza+ ". Y el numero l es: "+ l);
         k++;l++;}
 
+        
         Console.WriteLine("Desea que la dama sea: \n 1) blanca \n 2)negra");
         int dm = int.Parse(Console.ReadLine());
         Console.WriteLine("En que espacio desea la dama? ");
@@ -55,7 +56,7 @@
                 if(ubicaciondama.Contains(Convert.ToChar(97+i)) && ubicaciondama.Contains(Convert.ToChar(49+j))){
                if(dm == 1){ 
             ubicacionpieza[0+i,j]= "dama blanca";
-            }else{
+            }else if(dm ==2){
               ubicacionpieza[0+i,j]= "dama negra";
 
             }
@@ -67,7 +68,7 @@
         objtablero.graficarTablero();
         objtablero.definirposiciones();
         objtablero.evaluarPosicionesRectas();
-
+        objtablero.evaluarPosicioneshorizontales();
 
 
    

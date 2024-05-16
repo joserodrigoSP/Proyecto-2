@@ -140,8 +140,77 @@ public class Tablero
             }
 
 
-    
-    
+            public void evaluarPosicioneshorizontales(){
+               for(int i=0; i<ltablero.GetLength(0);i++){
+                  for(int j=0; j<ltablero.GetLength(1); j++){
+                     if(ltablero[i,j].Contains("dama blanca")){
+                        int posuno =i;
+                        int posdos =j;
+                        int postres =i;
+                        int valor = 7-i;
+                        for(int k=0; k<valor; k++){
+                              if(ltablero[posuno,posdos].Contains("negro")||ltablero[posuno,posdos].Contains("blanco")){
+                                 posuno++;
+                              }else{
+                                    if(ltablero[posuno+1,posdos].Contains("blanco")){
+                                 posuno++;}
+                                 else{Console.WriteLine("- Las posiciones es "+posiciones[posuno+1,posdos]);posuno++;}
+}
+                              }
+
+
+                              for(int k=0; k<i; k++){
+                              if(ltablero[postres,posdos].Contains("negro")||ltablero[postres,posdos].Contains("blanco")){
+                                 postres--;
+                              }else{
+                                    if(ltablero[postres-1,posdos].Contains("blanco")){
+                                 postres--;}
+                                 else{Console.WriteLine("- Las posiciones es "+posiciones[postres-1,posdos]);postres--;}
+}
+                              }
+                        }
+
+                         if(ltablero[i,j].Contains("dama negra")){
+                        int posuno =i;
+                        int posdos =j;
+                        int valor = 7-i;
+                        int postres =i;
+                        for(int k=0; k<valor; k++){
+                              if(ltablero[posuno,posdos].Contains("negro")||ltablero[posuno,posdos].Contains("blanco")){
+                                 posuno++;
+                              }else{
+                                    if(ltablero[posuno+1,posdos].Contains("negro")){
+                                 posuno++;}
+                                 else{Console.WriteLine("- La posicion es "+posiciones[posuno+1,posdos]);posuno++;}
+                                 }
+                              }
+
+
+
+                               for(int k=0; k<i; k++){
+                              if(ltablero[postres,posdos].Contains("negro")||ltablero[postres,posdos].Contains("blanco")){
+                                 postres--;
+                              }else{
+                                    if(ltablero[postres-1,posdos].Contains("negro")){
+                                 postres--;}
+                                 else{Console.WriteLine("- Las posiciones es "+posiciones[postres-1,posdos]);postres--;}
+}
+                              }
+                        }
+
+                        
+
+                     }
+                  }
+               }
+
+
+
+
+            
+
+
+
     public void graficarTablero(){
          for(int i = 0; i < ltablero.GetLength(0); i++){
          for(int z=0;  z< ltablero.GetLength(1); z++) {
