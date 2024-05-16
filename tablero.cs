@@ -53,8 +53,12 @@ public class Tablero
 
                   }else{
                   while(!(ltablero[i,pos2].Contains("blanco") || ltablero[i,pos2].Contains("negro"))  && k<valor && pos2<7){
-                  Console.WriteLine("la posicion es: "+ ltablero[i,pos2+1]);
+                     if(ltablero[i,pos2+1].Contains("blanco")){
                   pos2++;k++;
+                  }else{
+                     Console.WriteLine("la posicion es: "+ ltablero[i,pos2+1]);
+                  pos2++;k++;
+                  }
                   }
                   if(ltablero[i,pos2].Contains("negro")){
                      Console.WriteLine("la posicion es: "+ posiciones[i,pos2]);
@@ -62,8 +66,13 @@ public class Tablero
 
 
                    while(!(ltablero[i,pos3].Contains("blanco") || ltablero[i,pos3].Contains("negro")) && p<=vap &&pos3>0){
-                  Console.WriteLine("la posicion es: "+ ltablero[i,pos3-1]);
-                  pos3--;p++;
+                     if(ltablero[i,pos3-1].Contains("blanco")){
+                       pos3--;p++;
+                     }else{
+                     Console.WriteLine("la posicion es: "+ ltablero[i,pos3-1]);
+                     pos3--;p++;
+                     }
+                  
                   }
                   if(ltablero[i,pos3].Contains("negro")){
                      Console.WriteLine("la posicion es: "+ posiciones[i,pos3]);
