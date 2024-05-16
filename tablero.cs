@@ -214,15 +214,49 @@ public class Tablero
             int p0=i;
             int pav1=i;
             int pav2=j;
-
+            int p1_ = j;
+            int p0_=i;
+            int pav1_=i;
+            int pav2_=7-j;
             int valorabs;
             if(ltablero[i,j].Contains("dama blanca")){
+               string pdam ="";
+               while( pav2>=0 && p0<8 && p1>=0 && !ltablero[p0,p1].Contains("blanco") && !ltablero[p0,p1].Contains("negro") ){
 
-               while( pav2>=0 && p0<8 && p1>=0 ){
-                  Console.WriteLine("/ Las posiciones son: "+ltablero[p0,p1]);
-               pav1--;pav2--; p1--;p0++;
+                 if(ltablero[p0,p1].Contains("dama")){
+                  pdam = ltablero[p0,p1];
 
-               }
+                 } if(pdam == ltablero[p0,p1]){
+                  pav1--;pav2--; p1--;p0++;
+                 }else{
+                Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                  pav1--;pav2--; p1--;p0++;
+                 }
+               }if(ltablero[p0,p1].Contains("negro")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                  }
+
+
+               string pdam2="";
+               
+                while( pav2_>=0 && p0_>=0 && p1_<8 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
+                  if(ltablero[p0_,p1_].Contains("dama")){
+                     pdam2 = ltablero[p0_,p1_];
+                  }
+                  if(pdam2 == ltablero[p0_,p1_]){
+                  pav1_--;pav2_--; p1_++;p0_--;
+                  }else{
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                     pav1_--;pav2_--; p1_++;p0_--;
+                  }
+
+               }if(ltablero[p0_,p1_].Contains("negro")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                  }
+                  // fin dama blanca posiciones en diagonal 
+
+
+               
 
 
             }
