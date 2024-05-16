@@ -15,9 +15,9 @@
 
 
         Console.WriteLine("Cuantas piezas desea agregar?");
-        int.TryParse(Console.ReadLine(), out numpieza);
+        numpieza = int.Parse(Console.ReadLine());
         string[] pieza = new string[numpieza]; 
-        do{
+        while (l <= numpieza){
         Console.WriteLine("Qué tipo de pieza desea agregar? \n 1) alfil blanco \n 2) peón blanco \n 3) caballo blanco\n 4) torre blanca \n 5) alfil negro \n 6) peón negro \n 7) caballo negro\n 8) torre negra");
         int.TryParse(Console.ReadLine(), out tipoPieza);
         switch(tipoPieza){ 
@@ -44,7 +44,7 @@
         }
         }
         Console.WriteLine("El numero de pieza es: "+ numpieza+ ". Y el numero l es: "+ l);
-        k++;l++;}while (l <= numpieza);
+        k++;l++;}
 
         Console.WriteLine("Desea que la dama sea: \n 1) blanca \n 2)negra");
         int dm = int.Parse(Console.ReadLine());
@@ -63,11 +63,11 @@
         }
         }
 
-        Tablero objtablero = new Tablero(ubicacionpieza);
+        Tablero objtablero = new Tablero(ubicacionpieza, numpieza);
         objtablero.graficarTablero();
-       objtablero.evaluarPosicionesRectasPzsBlancas();
+        objtablero.definirposiciones();
+        objtablero.evaluarPosicionesRectas();
 
-       
 
 
    

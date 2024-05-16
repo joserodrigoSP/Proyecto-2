@@ -2,100 +2,80 @@
 
 public class Tablero
 {
-
+   public int validar;
     public string[,] ltablero = new string[8,8];
-
-    public Tablero(string[,] ubicaciones){
+   public string[,] posiciones = new string[8,8];
+    public Tablero(string[,] ubicaciones, int val){
         this.ltablero = ubicaciones;
+        this.validar = val;
+    }
+    public void definirposiciones(){
+      for(int i=0; i<posiciones.GetLength(0); i++){
+            for(int j=0; j<posiciones.GetLength(1); j++){
+                posiciones[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
+        }
+        }
     }
 
-    public void evaluarPosicionesRectasPzsBlancas(){ /// EVALUA POSICIONES BLANCAS 
-        int pos1 =0;
-        int pos2 =0;
+    public void evaluarPosicionesRectas(){ /// EVALUA POSICIONES BLANCAS 
+    int k =0;
+    int p =0;
+    int q = 0;
+        int pos1=0;
+        int pos2=0;
         int pos3=0;
+        int pos4=0;
+        int pos5=0;
+        int valor =0;
+        int vap =0;
         for(int i = 0; i < ltablero.GetLength(0); i++){
             for(int j = 0; j < ltablero.GetLength(1); j++){// Recorre la matriz
-            pos1=i;
-            pos2=j+1;
-            pos3=j-1;
-            int k=0; 
-            int m =0;
-            int valores =0;
-            int valor =0;
-            if(ltablero[i, j].Contains("dama blanca")){ //---------------------------------------CASO DAMA BLANCA
-            valores =ltablero.GetLength(0)-j;
-             valor = 8 -valores;
- /// APARTADO SI --- ---  EN CASO LA PIEZA-------------------- --------- ------- ------- ----- ES BLANCA EVALUAR POSICIONES RECTAS
-           
-  /// --------------------- FIN DEL - -- -- -- --- --- --APARTADO -- --  SI --  EN ----CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
+            if(ltablero[i,j].Contains("dama blanca")){
+               pos1=i;
+               pos2=j;
+               pos3=j;
+               valor = 7-j;
+               vap = 8-valor;
+                  if(this.validar==0){
+                     for(int m=0; m<=valor; m++){
+                        if(!(ltablero[i,j+m].Contains("blanco") || ltablero[i,j+m].Contains("negro"))){
+                           Console.WriteLine("la pasicion es: "+ ltablero[i,j+m]);
 
-             while(!(ltablero[pos1,pos3].Contains("blanco")||ltablero[pos1,pos3].Contains("negro")) && m<valor){
-                
-                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos3]);
-                        pos3--;
-                        m++;
-             } 
-                if(ltablero[pos1,pos3].Contains("negro")){
-                Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos3]);
-             }
-            /// APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
-             while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<valores){
-                
-                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
-                        pos2++;
-                        k++;
-            
-                        
-         
-             } 
-             if(ltablero[pos1,pos2].Contains("negro")){
-                Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
-             }/// FIN DEL APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
+                        }
+                     }
+                     q=j;
+                   while(!(ltablero[i,q].Contains("blanco") || ltablero[i,q].Contains("negro")) && q>=1){
+                     Console.WriteLine("la pasicion es: "+ ltablero[i,q-1]);
+                     q--;
+                   }
 
 
-}
+
+                  }else{
+                  while(!(ltablero[i,pos2].Contains("blanco") || ltablero[i,pos2].Contains("negro"))  && k<valor && pos2<7){
+                  Console.WriteLine("la posicion es: "+ ltablero[i,pos2+1]);
+                  pos2++;k++;
+                  }
+                  if(ltablero[i,pos2].Contains("negro")){
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos2]);
+                  }
 
 
-////////////////////////INICIO DAMA NEGRA /////////////////
-///
-     if(ltablero[i, j].Contains("dama negra")){ //---------------------------------------CASO DAMA negra
-            valores =ltablero.GetLength(0)-j;
-             valor = 8 -valores;
- /// APARTADO SI --- ---  EN CASO LA PIEZA-------------------- --------- ------- ------- ----- ES negra EVALUAR POSICIONES RECTAS
-           
-  /// --------------------- FIN DEL - -- -- -- --- --- --APARTADO -- --  SI --  EN ----CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
-
-             while(!(ltablero[pos1,pos3].Contains("blanco")||ltablero[pos1,pos3].Contains("negro")) && m<valor){
-                
-                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos3]);
-                        pos3--;
-                        m++;
-             } 
-                if(ltablero[pos1,pos3].Contains("blanco")){
-                Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos3]);
-             }
-            /// APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
-             while(!(ltablero[pos1,pos2].Contains("blanco")||ltablero[pos1,pos2].Contains("negro")) && k<valores){
-                
-                        Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
-                        pos2++;
-                        k++;
-            
-                        
-         
-             } 
-             if(ltablero[pos1,pos2].Contains("blanco")){
-                Console.WriteLine("--- Las posiciones son: " +ltablero[pos1,pos2]);
-             }/// FIN DEL APARTADO SI EN CASO LA PIEZA ES BLANCA EVALUAR POSICIONES RECTAS
+                   while(!(ltablero[i,pos3].Contains("blanco") || ltablero[i,pos3].Contains("negro")) && p<=vap &&pos3>0){
+                  Console.WriteLine("la posicion es: "+ ltablero[i,pos3-1]);
+                  pos3--;p++;
+                  }
+                  if(ltablero[i,pos3].Contains("negro")){
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos3]);
+                  }
+                  }
 
 
-}
 
             } 
-
-
+      
             }
-
+            }
             }
 
 
@@ -109,5 +89,19 @@ public class Tablero
         Console.WriteLine(" ");
         }
     
-    }}
+    }
+    
+    
+    
+    public void graficarPosiciones(){
+         for(int i = 0; i < posiciones.GetLength(0); i++){
+         for(int z=0;  z< posiciones.GetLength(1); z++) {
+            Console.Write("   " + posiciones[z,i]);
+        }
+        Console.WriteLine(" ");
+        }
+    
+    }
+    
+    }
 
