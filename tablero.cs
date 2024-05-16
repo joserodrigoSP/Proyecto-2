@@ -218,8 +218,8 @@ public class Tablero
             int valorabs;
             if(ltablero[i,j].Contains("dama blanca")){
 
-               while(pav1>=0 && pav2>=0 && p0<8 && p1>=0 ){
-                  Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+               while( pav2>=0 && p0<8 && p1>=0 ){
+                  Console.WriteLine("/ Las posiciones son: "+ltablero[p0,p1]);
                pav1--;pav2--; p1--;p0++;
 
                }
