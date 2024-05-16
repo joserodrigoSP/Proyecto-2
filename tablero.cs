@@ -39,13 +39,13 @@ public class Tablero
                   if(this.validar==0){
                      for(int m=0; m<=valor; m++){
                         if(!(ltablero[i,j+m].Contains("blanco") || ltablero[i,j+m].Contains("negro"))){
-                           Console.WriteLine("la pasicion es: "+ ltablero[i,j+m]);
+                           Console.WriteLine("la pasicion es: "+ posiciones[i,j+m]);
 
                         }
                      }
                      q=j;
                    while(!(ltablero[i,q].Contains("blanco") || ltablero[i,q].Contains("negro")) && q>=1){
-                     Console.WriteLine("la pasicion es: "+ ltablero[i,q-1]);
+                     Console.WriteLine("la pasicion es: "+ posiciones[i,q-1]);
                      q--;
                    }
 
@@ -56,7 +56,7 @@ public class Tablero
                      if(ltablero[i,pos2+1].Contains("blanco")){
                   pos2++;k++;
                   }else{
-                     Console.WriteLine("la posicion es: "+ ltablero[i,pos2+1]);
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos2+1]);
                   pos2++;k++;
                   }
                   }
@@ -69,7 +69,7 @@ public class Tablero
                      if(ltablero[i,pos3-1].Contains("blanco")){
                        pos3--;p++;
                      }else{
-                     Console.WriteLine("la posicion es: "+ ltablero[i,pos3-1]);
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos3-1]);
                      pos3--;p++;
                      }
                   
@@ -81,7 +81,59 @@ public class Tablero
 
 
 
-            } 
+            } else if(ltablero[i,j].Contains("dama negra")){
+
+
+
+               pos1=i;
+               pos2=j;
+               pos3=j;
+               valor = 7-j;
+               vap = 8-valor;
+                  if(this.validar==0){
+                     for(int m=0; m<=valor; m++){
+                        if(!(ltablero[i,j+m].Contains("blanco") || ltablero[i,j+m].Contains("negro"))){
+                           Console.WriteLine("la pasicion es: "+ posiciones[i,j+m]);
+
+                        }
+                     }
+                     q=j;
+                   while(!(ltablero[i,q].Contains("blanco") || ltablero[i,q].Contains("negro")) && q>=1){
+                     Console.WriteLine("la pasicion es: "+ posiciones[i,q-1]);
+                     q--;
+                   }
+
+
+
+                  }else{
+                  while(!(ltablero[i,pos2].Contains("blanco") || ltablero[i,pos2].Contains("negro"))  && k<valor && pos2<7){
+                     if(ltablero[i,pos2+1].Contains("negro")){
+                  pos2++;k++;
+                  }else{
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos2+1]);
+                  pos2++;k++;
+                  }
+                  }
+                  if(ltablero[i,pos2].Contains("blanco")){
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos2]);
+                  }
+
+
+                   while(!(ltablero[i,pos3].Contains("blanco") || ltablero[i,pos3].Contains("negro")) && p<=vap &&pos3>0){
+                     if(ltablero[i,pos3-1].Contains("negro")){
+                       pos3--;p++;
+                     }else{
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos3-1]);
+                     pos3--;p++;
+                     }
+                  
+                  }
+                  if(ltablero[i,pos3].Contains("blanco")){
+                     Console.WriteLine("la posicion es: "+ posiciones[i,pos3]);
+                  }
+                  }
+
+            }
       
             }
             }
