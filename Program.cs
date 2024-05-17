@@ -3,7 +3,7 @@
 {
     public static void Main(string[] args)
     {
-     string[,] ubicacionpieza = new string[8,8];
+     string[,] ubicacionpieza = new string[8,8];string[,] nuevotablero = new string[8,8]; 
       //matriz para almacenar la posicion de las piezas del tablero.
         int tipoPieza =0;  int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
         
@@ -11,6 +11,12 @@
         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 ubicacionpieza[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
+        }
+        }
+          //Declarar los espacios del arreglo 2 como libres
+        for(int i=0; i<nuevotablero.GetLength(0); i++){
+            for(int j=0; j<nuevotablero.GetLength(1); j++){
+                nuevotablero[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
         }
         }
 
@@ -40,40 +46,47 @@
             case 8: pieza[k] = "torre negro";break;} // ASIGNAR LA PIEZA
 
     //ubicacion de la pieza
-    bool validar = false;string ubicacion;string pos="";
+    bool validar = false;string ubicacion;string pos=""; 
     do{
         Console.WriteLine("En qué ubicación desea colocar la pieza?");
          ubicacion =Console.ReadLine();
-
-        for(int i=0; i<ubicacionpieza.GetLength(0); i++){
+   for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
-                if(ubicacionpieza[i,j]==ubicacion){
-                 
+                if(nuevotablero[i,j]==ubicacion){
+                 int pos1 =i;
+                 int pos2 =j;
 
-                    if(pos == pieza[k]){
+                    if(ubicacionpieza[pos1, pos2] == pieza[k]){
                     validar = true;
                     Console.WriteLine("Esa posicion ya está ocupada");
+            }else{
+                validar = false;
             } 
                 }
-                
         }
-        }
-    }while(validar == true);
+        } }while(validar == true);
+   
 
         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 if(ubicacion.Contains(Convert.ToChar(97+i)) && ubicacion.Contains(Convert.ToChar(49+j))){
-            ubicacionpieza[0+i,j]= pieza[k];
+            ubicacionpieza[i,j]= pieza[k];
             } 
         }
         }
+                 
+
         k++;l++;}
 
         int dm;
         do{
         Console.WriteLine("Desea que la dama sea: \n 1) blanca \n 2) negra");
          dm = int.Parse(Console.ReadLine());
+         if(dm==1 && dm==2){
+            Console.WriteLine("Esa opción no es válida \n");
+         }
           }while(dm!=1 && dm!=2);
+        
         Console.WriteLine("En que espacio desea la dama? ");
         ubicaciondama = Console.ReadLine();
          for(int i=0; i<ubicacionpieza.GetLength(0); i++){

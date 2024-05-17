@@ -501,13 +501,13 @@ public class Tablero
             matrizensenar[i,z] ="AN🐀|";
             break;
              case "peon blanco":
-            matrizensenar[i,z] ="PB🥶|";
+            matrizensenar[i,z] ="PB👻|";
             break;
             case "peon negro":
-            matrizensenar[i,z] ="PN🥵|";
+            matrizensenar[i,z] ="PN🕴🏽|";
             break;
              case "caballo blanco":
-            matrizensenar[i,z] ="CB🪅|";
+            matrizensenar[i,z] ="CB🦓|";
             break;
             case "caballo negro":
             matrizensenar[i,z] ="CN🐎|";
