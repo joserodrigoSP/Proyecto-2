@@ -4,7 +4,8 @@ public class Tablero
 {
    public int validar;
     public string[,] ltablero = new string[8,8];
-   public string[,] posiciones = new string[8,8];
+    public string[,] posiciones = new string[8,8];
+    public string[,] matrizensenar = new string[8,8];
     public Tablero(string[,] ubicaciones, int val){
         this.ltablero = ubicaciones;
         this.validar = val;
@@ -232,14 +233,14 @@ public class Tablero
                 Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
                   pav1--;pav2--; p1--;p0++;
                  }
-               }if(ltablero[p0,p1].Contains("negro")){
+               }/*if(ltablero[p0,p1].Contains("negro")){
                    Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
-                  }
+                  }*/
 
 
                string pdam2="";
                
-                while( pav2_>=0 && p0_>=0 && p1_<8 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
+                while(p0_>=0 && p1_<8 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
                   if(ltablero[p0_,p1_].Contains("dama")){
                      pdam2 = ltablero[p0_,p1_];
                   }
@@ -250,9 +251,55 @@ public class Tablero
                      pav1_--;pav2_--; p1_++;p0_--;
                   }
 
-               }if(ltablero[p0_,p1_].Contains("negro")){
+               }
+               
+               
+               /*if(ltablero[p0_,p1_].Contains("negro")){
                    Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                  }*/
+                  // fin dama blanca posiciones en diagonal 
+
+
+               
+
+
+            }
+
+
+             if(ltablero[i,j].Contains("dama negra")){
+               string pdam ="";
+               while( pav2>=0 && p0<8 && p1>=0 && !ltablero[p0,p1].Contains("blanco") && !ltablero[p0,p1].Contains("negro") ){
+
+                 if(ltablero[p0,p1].Contains("dama")){
+                  pdam = ltablero[p0,p1];
+
+                 } if(pdam == ltablero[p0,p1]){
+                  pav1--;pav2--; p1--;p0++;
+                 }else{
+                Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                  pav1--;pav2--; p1--;p0++;
+                 }
+               }/*if(ltablero[p0,p1].Contains("blanco")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                  }*/
+
+
+               string pdam2="";
+               
+                while(  p0_>=0 && p1_<8 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
+                  if(ltablero[p0_,p1_].Contains("dama")){
+                     pdam2 = ltablero[p0_,p1_];
                   }
+                  if(pdam2 == ltablero[p0_,p1_]){
+                  pav1_--;pav2_--; p1_++;p0_--;
+                  }else{
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                     pav1_--;pav2_--; p1_++;p0_--;
+                  }
+
+               }/*if(ltablero[p0_,p1_].Contains("blanco")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                  }*/
                   // fin dama blanca posiciones en diagonal 
 
 
@@ -266,6 +313,154 @@ public class Tablero
 
 
    }
+
+
+
+
+
+
+
+   public void evaluarPosicionesdiagonales2(){
+
+      for(int i=0; i<ltablero.GetLength(0); i++){
+         for(int j=0; j<ltablero.GetLength(1); j++){
+           
+            if(ltablero[i,j].Contains("dama blanca")){
+               string pdam ="";
+                int p1 = j;
+            int p0=i;
+            int pav1=i;
+            int pav2=j;
+            int p1_ = j;
+            int p0_=i;
+            int p1__ = j;
+            int p0__=i;
+            int pav1_=i;
+            int pav2_=7-j;
+            int valorabs;
+            string pdam2="";
+               
+                while( pav2_>=0 && p0_>8 && p1_>=0 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
+                  if(ltablero[p0_,p1_].Contains("dama")){
+                     pdam2 = ltablero[p0_,p1_];
+                  }
+                  if(pdam2 == ltablero[p0_,p1_]){
+                  pav1_--;pav2_--; p1_--;p0_++;
+                  }else{
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                     pav1_--;pav2_--;p1_--;p0_++;
+                  }
+
+               }/*if(ltablero[p0_,p1_].Contains("negro")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                  }*/
+                  // fin dama blanca posiciones en diagonal 
+
+
+                 string pdam2_="";
+               
+                while(p0__<8 && p1__<8){
+                  if( !(ltablero[p0__,p1__].Contains("blanco") || ltablero[p0__,p1__].Contains("negro"))){
+                  if(ltablero[p0__,p1__].Contains("dama")){
+                     pdam2_ = ltablero[p0__,p1__];
+                  }
+                  if(pdam2_ == ltablero[p0__,p1__]){
+                  pav1_--;pav2_--; p1__++;p0__++;
+                  }else{
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0__,p1__]);
+                     pav1_--;pav2_--;p1__++;p0__++;
+                  }
+
+               }else if(ltablero[p0__,p1__].Contains("negro")){
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0__,p1__]);
+                    pav1_--;pav2_--;p1__++;p0__++;
+
+               }
+               
+               }/*if(ltablero[p0_,p1_].Contains("blanco")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                  }*/
+                  // fin dama blanca posiciones en diagonal 
+
+
+
+
+
+            }
+
+
+             if(ltablero[i,j].Contains("dama negra")){
+                int p1 = j;
+            int p0=i;
+            int pav1=i;
+            int pav2=j;
+            int p1_ = j;
+            int p0_=i;
+            int pav1_=i;
+            int pav2_=7-j;
+            int valorabs;
+                         string pdam ="";
+               while( pav2>=0 && p0>=0 && p1>=0 && !ltablero[p0,p1].Contains("blanco") && !ltablero[p0,p1].Contains("negro") ){
+
+                 if(ltablero[p0,p1].Contains("dama")){
+                  pdam = ltablero[p0,p1];
+
+                 } if(pdam == ltablero[p0,p1]){
+                  pav1--;pav2--; p1--;p0--;
+                 }else{
+                Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                  pav1--;pav2--; p1--;p0--;
+                 }
+               }/*if(ltablero[p0,p1].Contains("blanco")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                  }*/
+
+
+               string pdam2="";
+               
+                while(p0_<8 && p1_<8){
+                  if( !(ltablero[p0_,p1_].Contains("blanco") || ltablero[p0_,p1_].Contains("negro"))){
+                  if(ltablero[p0_,p1_].Contains("dama")){
+                     pdam2 = ltablero[p0_,p1_];
+                  }
+                  if(pdam2 == ltablero[p0_,p1_]){
+                  pav1_--;pav2_--; p1_++;p0_++;
+                  }else{
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                     pav1_--;pav2_--;p1_++;p0_++;
+                  }
+
+               }else if(ltablero[p0_,p1_].Contains("blanco")){
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                    pav1_--;pav2_--;p1_++;p0_++;
+
+               }
+               
+               }/*if(ltablero[p0_,p1_].Contains("blanco")){
+                   Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
+                  }*/
+                  // fin dama blanca posiciones en diagonal 
+
+
+
+               
+
+
+            }
+
+         }     
+      }
+
+
+   }
+
+
+
+
+
+
+
+
             
 
 

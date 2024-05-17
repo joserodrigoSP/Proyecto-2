@@ -96,7 +96,7 @@
         objtablero.evaluarPosicionesRectas();
         objtablero.evaluarPosicioneshorizontales();
         objtablero.evaluarPosicionesdiagonales1();
-
+        objtablero.evaluarPosicionesdiagonales2();
    
       
 
