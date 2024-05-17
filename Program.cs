@@ -3,7 +3,8 @@
 {
     public static void Main(string[] args)
     {
-     string[,] ubicacionpieza = new string[8,8]; //matriz para almacenar la posicion de las piezas del tablero.
+     string[,] ubicacionpieza = new string[8,8];
+      //matriz para almacenar la posicion de las piezas del tablero.
         int tipoPieza =0;  int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
         
         //Declarar los espacios del arreglo como libres
@@ -91,14 +92,15 @@
        
 
         Tablero objtablero = new Tablero(ubicacionpieza, numpieza);
-        objtablero.graficarTablero();
         objtablero.definirposiciones();
+        objtablero.graficarPosiciones();
+        objtablero.mostrar();
         objtablero.evaluarPosicionesRectas();
         objtablero.evaluarPosicioneshorizontales();
         objtablero.evaluarPosicionesdiagonales1();
         objtablero.evaluarPosicionesdiagonales2();
-   
-      
+        
+
 
 
 

@@ -16,6 +16,13 @@ public class Tablero
                 posiciones[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
         }
         }
+
+
+         for(int i=0; i<matrizensenar.GetLength(0); i++){
+            for(int j=0; j<matrizensenar.GetLength(1); j++){
+                matrizensenar[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j)+"   |";
+        }
+        }
     }
 
     public void evaluarPosicionesRectas(){ /// EVALUA POSICIONES BLANCAS 
@@ -475,16 +482,61 @@ public class Tablero
     
     }
     
-    
+    /* */
     
     public void graficarPosiciones(){
          for(int i = 0; i < posiciones.GetLength(0); i++){
          for(int z=0;  z< posiciones.GetLength(1); z++) {
-            Console.Write("   " + posiciones[z,i]);
+           switch(ltablero[i,z]){
+            case "dama blanca":
+            matrizensenar[i,z] ="DB👵🏽|";
+            break;
+            case "dama negra":
+            matrizensenar[i,z] ="DN👵🏽|";
+            break;
+             case "alfil blanco":
+            matrizensenar[i,z] ="AB🐁|";
+            break;
+            case "alfil negro":
+            matrizensenar[i,z] ="AN🐀|";
+            break;
+             case "peon blanco":
+            matrizensenar[i,z] ="PB🥶|";
+            break;
+            case "peon negro":
+            matrizensenar[i,z] ="PN🥵|";
+            break;
+             case "caballo blanco":
+            matrizensenar[i,z] ="CB🪅|";
+            break;
+            case "caballo negro":
+            matrizensenar[i,z] ="CN🐎|";
+            break;
+             case "torre blanco":
+            matrizensenar[i,z] ="TB🏦|";
+            break;
+            case "torre negro":
+            matrizensenar[i,z] ="TN🏛️|";
+            break;
+            
+           }
+}
+
         }
-        Console.WriteLine(" ");
         }
+
+
     
+    
+    
+
+    public void mostrar(){
+          for(int i = 0; i < posiciones.GetLength(0); i++){
+         for(int z=0;  z< posiciones.GetLength(1); z++) {
+            Console.Write("       " + matrizensenar[z,i]);
+        }
+        Console.WriteLine("\n---------------------------------------------------------------------------------------------------------");
+        }
     }
     
     }
