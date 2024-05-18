@@ -347,7 +347,7 @@ public class Tablero
             int valorabs;
             string pdam2="";
                
-                while( pav2_>=0 && p0_>=0 && p1_>=0 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
+                while( p0_>=0 && p1_>=0 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
                   if(ltablero[p0_,p1_].Contains("dama")){
                      pdam2 = ltablero[p0_,p1_];
                   }
