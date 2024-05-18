@@ -347,15 +347,15 @@ public class Tablero
             int valorabs;
             string pdam2="";
                
-                while( pav2_>=0 && p0_>8 && p1_>=0 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
+                while( pav2_>=0 && p0_>=0 && p1_>=0 && !ltablero[p0_,p1_].Contains("blanco") && !ltablero[p0_,p1_].Contains("negro")){
                   if(ltablero[p0_,p1_].Contains("dama")){
                      pdam2 = ltablero[p0_,p1_];
                   }
                   if(pdam2 == ltablero[p0_,p1_]){
-                  pav1_--;pav2_--; p1_--;p0_++;
+                  pav1_--;pav2_--; p1_--;p0_--;
                   }else{
                      Console.WriteLine("/ Las posiciones son: "+posiciones[p0_,p1_]);
-                     pav1_--;pav2_--;p1_--;p0_++;
+                     pav1_--;pav2_--;p1_--;p0_--;
                   }
 
                }/*if(ltablero[p0_,p1_].Contains("negro")){
@@ -407,17 +407,25 @@ public class Tablero
             int pav2_=7-j;
             int valorabs;
                          string pdam ="";
-               while( pav2>=0 && p0>=0 && p1>=0 && !ltablero[p0,p1].Contains("blanco") && !ltablero[p0,p1].Contains("negro") ){
-
-                 if(ltablero[p0,p1].Contains("dama")){
-                  pdam = ltablero[p0,p1];
-
-                 } if(pdam == ltablero[p0,p1]){
+                   
+                while(p0>=0 && p1>=0){
+                  if( !(ltablero[p0,p1].Contains("blanco") || ltablero[p0,p1].Contains("negro"))){
+                  if(ltablero[p0,p1].Contains("dama")){
+                     pdam = ltablero[p0,p1];
+                  }
+                  if(pdam == ltablero[p0,p1]){
                   pav1--;pav2--; p1--;p0--;
-                 }else{
-                Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
-                  pav1--;pav2--; p1--;p0--;
-                 }
+                  }else{
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                     pav1--;pav2--;p1--;p0--;
+                  }
+
+               }else if(ltablero[p0,p1].Contains("blanco")){
+                     Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
+                    pav1--;pav2--;p1--;p0--;
+
+               }
+               
                }/*if(ltablero[p0,p1].Contains("blanco")){
                    Console.WriteLine("/ Las posiciones son: "+posiciones[p0,p1]);
                   }*/
