@@ -3,7 +3,7 @@
 {
     public static void Main(string[] args)
     {
-     string[,] ubicacionpieza = new string[8,8];string[,] nuevotablero = new string[8,8]; 
+     string[,] ubicacionpieza = new string[8,8];string[,] nuevotablero = new string[8,8]; string[,] otrotablero = new string[8,8];
       //matriz para almacenar la posicion de las piezas del tablero.
         int tipoPieza =0;  int numpieza =0;int k =0; int l=1;string ubicaciondama ="";
         
@@ -11,6 +11,12 @@
         for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 ubicacionpieza[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
+        }
+        }
+        //Declarar los espacios del arreglo como libres
+        for(int i=0; i<otrotablero.GetLength(0); i++){
+            for(int j=0; j<otrotablero.GetLength(1); j++){
+                otrotablero[i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
         }
         }
           //Declarar los espacios del arreglo 2 como libres
@@ -50,18 +56,31 @@
     do{
         Console.WriteLine("En qué ubicación desea colocar la pieza?");
          ubicacion =Console.ReadLine();
+
+
+         for(int i=0; i<nuevotablero.GetLength(0); i++){
+            for(int j=0; j<nuevotablero.GetLength(1); j++){
+                if(ubicacion.Contains(Convert.ToChar(97+i)) && ubicacion.Contains(Convert.ToChar(49+j))){
+            nuevotablero[i,j]= pieza[k];
+            } 
+        }
+        }
+
+
    for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
-                if(nuevotablero[i,j]==ubicacion){
+                if(otrotablero[i,j].Contains(ubicacion)){
                  int pos1 =i;
                  int pos2 =j;
-
-                    if(ubicacionpieza[pos1, pos2] == pieza[k]){
+                validar = false;
+                        for(int f =0; f<pieza.Length; f++){
+                                 if(ubicacionpieza[pos1, pos2] == pieza[f]){
                     validar = true;
                     Console.WriteLine("Esa posicion ya está ocupada");
-            }else{
-                validar = false;
-            } 
+                     }
+                        }
+
+                   
                 }
         }
         } }while(validar == true);

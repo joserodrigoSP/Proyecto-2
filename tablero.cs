@@ -500,34 +500,34 @@ public class Tablero
          for(int z=0;  z< posiciones.GetLength(1); z++) {
            switch(ltablero[i,z]){
             case "dama blanca":
-            matrizensenar[i,z] ="DB👵🏽|";
+            matrizensenar[i,z] ="DB👵🏽| ";
             break;
             case "dama negra":
-            matrizensenar[i,z] ="DN👵🏽|";
+            matrizensenar[i,z] ="DN👵🏽| ";
             break;
              case "alfil blanco":
-            matrizensenar[i,z] ="AB🐁|";
+            matrizensenar[i,z] ="AB🐁| ";
             break;
             case "alfil negro":
-            matrizensenar[i,z] ="AN🐀|";
+            matrizensenar[i,z] ="AN🐀| ";
             break;
              case "peon blanco":
-            matrizensenar[i,z] ="PB👻|";
+            matrizensenar[i,z] ="PB👻| ";
             break;
             case "peon negro":
-            matrizensenar[i,z] ="PN🕴🏽|";
+            matrizensenar[i,z] ="PN🕴🏽| ";
             break;
              case "caballo blanco":
-            matrizensenar[i,z] ="CB🦓|";
+            matrizensenar[i,z] ="CB🦓| ";
             break;
             case "caballo negro":
-            matrizensenar[i,z] ="CN🐎|";
+            matrizensenar[i,z] ="CN🐎| ";
             break;
              case "torre blanco":
-            matrizensenar[i,z] ="TB🏦|";
+            matrizensenar[i,z] ="TB🏦| ";
             break;
             case "torre negro":
-            matrizensenar[i,z] ="TN🏛️|";
+            matrizensenar[i,z] ="TN🏛️| ";
             break;
             
            }
