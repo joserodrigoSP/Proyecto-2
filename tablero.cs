@@ -13,14 +13,14 @@ public class Tablero
     public void definirposiciones(){
       for(int i=0; i<posiciones.GetLength(0); i++){
             for(int j=0; j<posiciones.GetLength(1); j++){
-                posiciones[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);
+                posiciones[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j);  //DEFINE LAS POSICIONES EN NOTACION DE AJEDREZ
         }
         }
 
 
          for(int i=0; i<matrizensenar.GetLength(0); i++){
             for(int j=0; j<matrizensenar.GetLength(1); j++){
-                matrizensenar[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j)+"   |";
+                matrizensenar[0+i,j]= ""+Convert.ToChar(97+i)+Convert.ToChar(49+j)+"   |";//DEFINE LAS POSICIONES EN NOTACION DE AJEDREZ
         }
         }
     }
@@ -38,14 +38,14 @@ public class Tablero
         int vap =0;
         for(int i = 0; i < ltablero.GetLength(0); i++){
             for(int j = 0; j < ltablero.GetLength(1); j++){// Recorre la matriz
-            if(ltablero[i,j].Contains("dama blanca")){
+            if(ltablero[i,j].Contains("dama blanca")){ //verifica la ubicacion de la dama blanca
                pos1=i;
                pos2=j;
                pos3=j;
                valor = 7-j;
                vap = 8-valor;
-                  if(this.validar==0){
-                     for(int m=0; m<=valor; m++){
+                  if(this.validar==0){ 
+                     for(int m=0; m<=valor; m++){ 
                         if(!(ltablero[i,j+m].Contains("blanco") || ltablero[i,j+m].Contains("negro"))){
                            Console.WriteLine("| la pasicion es: "+ posiciones[i,j+m]);
 
@@ -59,7 +59,7 @@ public class Tablero
 
 
 
-                  }else{
+                  }else{ ////////////////////////// Cuando el tablero no es blanco ni es negro y no pasa de los valores entonces pasa lo que está adentro del bloque
                   while(!(ltablero[i,pos2].Contains("blanco") || ltablero[i,pos2].Contains("negro"))  && k<valor && pos2<7){
                      if(ltablero[i,pos2+1].Contains("blanco")){
                   pos2++;k++;
@@ -68,7 +68,7 @@ public class Tablero
                   pos2++;k++;
                   }
                   }
-                  if(ltablero[i,pos2].Contains("negro")){
+                  if(ltablero[i,pos2].Contains("negro")){ // coomo evalua solo hasta la posicion 6 imprimimos la posicion 7 
                      Console.WriteLine("| la posicion es: "+ posiciones[i,pos2]);
                   }
 
@@ -89,7 +89,7 @@ public class Tablero
 
 
 
-            } else if(ltablero[i,j].Contains("dama negra")){
+            } else if(ltablero[i,j].Contains("dama negra")){ ///////////////////////////// EVALUAMOS, ES DECIR HACEMOS LO MISMO PERO CON LA DAMA NEGRA//
 
 
 

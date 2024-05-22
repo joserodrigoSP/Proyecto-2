@@ -27,15 +27,15 @@
         }
 
 
-        Console.WriteLine("Cuantas piezas desea agregar?");
+        Console.WriteLine("Cuantas piezas desea agregar?"); //pidiendole al usuario las piezas
         numpieza = int.Parse(Console.ReadLine());
-        string[] pieza = new string[numpieza]; 
+        string[] pieza = new string[numpieza]; //se crea una matriz dependiendo de las piezas que desee el usuario
         while (l <= numpieza){
             do{
         Console.WriteLine("Qué tipo de pieza desea agregar? \n 1) alfil blanco \n 2) peón blanco \n 3) caballo blanco\n 4) torre blanca \n 5) alfil negro \n 6) peón negro \n 7) caballo negro\n 8) torre negra");
         int.TryParse(Console.ReadLine(), out tipoPieza);
 
-        if(tipoPieza>8){
+        if(tipoPieza>8){ // pide las piezas y no deja que sea mayor a 8
             Console.WriteLine("El numero no está entre las opciones, intenta de nuevo");
         }
 }while(tipoPieza>8);
@@ -43,7 +43,7 @@
         switch(tipoPieza){ 
             
             case 1: pieza[k] = "alfil blanco";break;
-            case 2: pieza[k] = "peon blanco";break;
+            case 2: pieza[k] = "peon blanco";break; //define a pieza segun el espacio que corresponda
             case 3: pieza[k] = "caballo blanco";break;
             case 4: pieza[k] = "torre blanco";break;
             case 5: pieza[k] = "alfil negro";break;
@@ -52,7 +52,7 @@
             case 8: pieza[k] = "torre negro";break;} // ASIGNAR LA PIEZA
 
     //ubicacion de la pieza
-    bool validar = false;string ubicacion;string pos=""; 
+    bool validar = false;string ubicacion;string pos="";  // se declara una variable bool para validar la pieza
     do{
         Console.WriteLine("En qué ubicación desea colocar la pieza?");
          ubicacion =Console.ReadLine();
@@ -72,9 +72,9 @@
                 if(otrotablero[i,j].Contains(ubicacion)){
                  int pos1 =i;
                  int pos2 =j;
-                validar = false;
+                validar = false; // SI NO ESTÁ OCUPADA PR DEFECTO SERÁ FALSE
                         for(int f =0; f<pieza.Length; f++){
-                                 if(ubicacionpieza[pos1, pos2] == pieza[f]){
+                                 if(ubicacionpieza[pos1, pos2] == pieza[f]){  //RECORRE TODAS LAS POSIBLES PIEZAS Y NOS DICE SI ESTÁ OCUPADA
                     validar = true;
                     Console.WriteLine("Esa posicion ya está ocupada");
                      }
@@ -92,10 +92,10 @@
             ubicacionpieza[i,j]= pieza[k];
             } 
         }
-        }
+        }   // PONE EN LA UBICACION QUE DESEO EL USUARIO LA PIEZA QUE ELIGIO
                  
 
-        k++;l++;}
+        k++;l++;} // INCREMENTA PARA HACER VÁLIDA LA EXPRESION
 
         int dm;
         do{
@@ -114,7 +114,7 @@
                if(dm == 1){ 
             ubicacionpieza[0+i,j]= "dama blanca";
             }else if(dm ==2){
-              ubicacionpieza[0+i,j]= "dama negra";
+              ubicacionpieza[0+i,j]= "dama negra"; // DEFINE LA POSICION DE LA DAMA
 
             }
             } 
