@@ -105,9 +105,32 @@
             Console.WriteLine("Esa opción no es válida \n");
          }
           }while(dm!=1 && dm!=2);
-        
+          bool validar2=false;
+        do{
         Console.WriteLine("En que espacio desea la dama? ");
         ubicaciondama = Console.ReadLine();
+
+
+            for(int i=0; i<ubicacionpieza.GetLength(0); i++){
+            for(int j=0; j<ubicacionpieza.GetLength(1); j++){
+                if(otrotablero[i,j].Contains(ubicaciondama)){
+                 int pos1 =i;
+                 int pos2 =j;
+                validar2 = false; // SI NO ESTÁ OCUPADA PR DEFECTO SERÁ FALSE
+                        for(int f =0; f<pieza.Length; f++){
+                                 if(ubicacionpieza[pos1, pos2] == pieza[f]){  //RECORRE TODAS LAS POSIBLES PIEZAS Y NOS DICE SI ESTÁ OCUPADA
+                    validar2 = true;
+                    Console.WriteLine("Esa posicion ya está ocupada");
+                     }
+                        }
+
+                   
+                }
+        }
+        } 
+
+
+        }while(validar2 ==true);
          for(int i=0; i<ubicacionpieza.GetLength(0); i++){
             for(int j=0; j<ubicacionpieza.GetLength(1); j++){
                 if(ubicaciondama.Contains(Convert.ToChar(97+i)) && ubicaciondama.Contains(Convert.ToChar(49+j))){
